@@ -1,18 +1,15 @@
-
 <h2>Products</h2>
 
-<div *ngFor="let product of products ; index as productId">
+<div class="container-fluid row justify-content-around">
 
-    <img src="{{ product.img }}" alt="{{ products.name }}">
- <h3>
-   <a [routerLink]="['/products', productId]">
-     {{ product.name }}
-   </a>
- </h3>
- <h4>{{ product.price }}</h4>
- <p *ngIf="product.description">
-   Description: {{ product.description }}
- </p>
-
-
+    <div class="bg-transparent card col-3 m-1" style="width: 18rem;" *ngFor="let product of products ; index as productId">
+        <img src="{{ product.img }}" class=" card-img-top">
+        <div class="card-body ">
+            <h5 class=" card-title "><a [routerLink]="['/products', productId]">
+          {{ product.name }}
+        </a></h5>
+            <p *ngIf="product.description " class="card-text ">{{ product.description }}</p>
+            <a [routerLink]="['/products', productId]" class="btn btn-primary ">{{ product.name }}</a>
+        </div>
+    </div>
 </div>
